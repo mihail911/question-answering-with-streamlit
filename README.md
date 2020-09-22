@@ -1,8 +1,12 @@
 # State-of-the-art Question Answering With Streamlit and HuggingFace
 
-This is the code accompanying [this post](https://www.mihaileric.com/posts/state-of-the-art-question-answering-streamlit-huggingface/). Also, you can try the app [here]()
+This is the code accompanying [this post](https://www.mihaileric.com/posts/state-of-the-art-question-answering-streamlit-huggingface/). You can try the app [here](https://wikipedia-transformers-qa.herokuapp.com/). Built using Streamlit and deployed on Heroku
 
 ![qa_streamlit](resources/qa_streamlit.gif)
+
+## Libraries Used
+* Transformers
+* Streamlit
 
 ## Running Locally
 All the experiments are run on `python 3.8.0`.
