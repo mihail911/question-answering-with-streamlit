@@ -16,4 +16,6 @@ If you don't know where the object of type tensorflow.python.util.object_identit
 ```
 ![error](resources/error.png)
 
-I know this is not a very good way to report bugs ;)
+This error occurs when using streamlit caching.
+
+I know this is not a very good way to report bugs :( Should have created an issue instead.
