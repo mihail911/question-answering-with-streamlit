@@ -1,3 +1,4 @@
 streamlit==0.62.1
+tensorflow==2.3.0
 transformers==3.0.0
 wikipedia==1.4.0
