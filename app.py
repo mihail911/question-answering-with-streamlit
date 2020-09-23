@@ -2,7 +2,7 @@ from typing import Dict
 
 import streamlit as st  # type: ignore
 import wikipedia    # type: ignore
-from transformers import Pipeline, pipeline # type: ignore
+from transformers import Pipeline, pipeline  # type: ignore
 
 NUM_SENT = 10
 
