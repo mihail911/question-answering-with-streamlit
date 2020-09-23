@@ -34,7 +34,7 @@ All the experiments are run on `python 3.8.0`.
 	```bash
 	poetry install
 	```
-5. (Optional) Explicitly instantiate the env.
+5. (Optional) Explicitly instantiate the env
     ```bash
     source "$( poetry env list --full-path | grep Activated | cut -d' ' -f1 )/bin/activate"
     ```
@@ -42,3 +42,8 @@ All the experiments are run on `python 3.8.0`.
     ```bash
     streamlit run app.py
     ```
+7. Change `config` dictionary values in `config.py` as required
+```python
+framework: tf/pt # choose tensorflow or pytorch framework
+NUM_SENT: int # number of wiki sentences for context
+```

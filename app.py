@@ -1,14 +1,14 @@
 from typing import Dict
 
 import streamlit as st  # type: ignore
-import wikipedia    # type: ignore
+import wikipedia  # type: ignore
 from transformers import Pipeline, pipeline  # type: ignore
 
-NUM_SENT = 10
+from config import config
 
 
 def get_qa_pipeline() -> Pipeline:
-    qa = pipeline("question-answering", framework="tf")
+    qa = pipeline("question-answering", framework=config["framework"])
     return qa
 
 
@@ -20,10 +20,10 @@ def answer_question(pipeline: Pipeline, question: str, paragraph: str) -> Dict:
 def get_wiki_paragraph(query: str) -> str:
     results = wikipedia.search(query)
     try:
-        summary = wikipedia.summary(results[0], sentences=NUM_SENT)
+        summary = wikipedia.summary(results[0], sentences=config["NUM_SENT"])
     except wikipedia.DisambiguationError as e:
         ambiguous_terms = e.options
-        return wikipedia.summary(ambiguous_terms[0], sentences=NUM_SENT)
+        return wikipedia.summary(ambiguous_terms[0], sentences=config["NUM_SENT"])
     return summary
 
 
