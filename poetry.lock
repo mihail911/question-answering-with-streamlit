@@ -39,7 +39,7 @@ version = "1.4.4"
 [[package]]
 category = "main"
 description = "Disable App Nap on OS X 10.9"
-marker = "python_version >= \"3.4\" and sys_platform == \"darwin\" or python_version >= \"3.4\" and platform_system == \"Darwin\""
+marker = "sys_platform == \"darwin\" or platform_system == \"Darwin\" or python_version >= \"3.3\" and sys_platform == \"darwin\" or python_version >= \"3.4\" and sys_platform == \"darwin\" or python_version >= \"3.4\" and platform_system == \"Darwin\""
 name = "appnope"
 optional = false
 python-versions = "*"
@@ -92,6 +92,17 @@ version = "1.10"
 
 [[package]]
 category = "main"
+description = "A dict with attribute-style access"
+name = "attrdict"
+optional = false
+python-versions = "*"
+version = "2.0.1"
+
+[package.dependencies]
+six = "*"
+
+[[package]]
+category = "main"
 description = "Classes Without Boilerplate"
 name = "attrs"
 optional = false
@@ -107,7 +118,6 @@ tests_no_zope = ["coverage (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0
 [[package]]
 category = "main"
 description = "Specifications for callback functions passed in to an API"
-marker = "python_version >= \"3.4\""
 name = "backcall"
 optional = false
 python-versions = "*"
@@ -262,7 +272,7 @@ version = "7.1.2"
 [[package]]
 category = "main"
 description = "Cross-platform colored terminal text."
-marker = "python_version >= \"3.4\" and sys_platform == \"win32\""
+marker = "python_version >= \"3.3\" and sys_platform == \"win32\" or sys_platform == \"win32\" or python_version >= \"3.4\" and sys_platform == \"win32\""
 name = "colorama"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
@@ -328,6 +338,14 @@ version = "3.8.3"
 mccabe = ">=0.6.0,<0.7.0"
 pycodestyle = ">=2.6.0a1,<2.7.0"
 pyflakes = ">=2.2.0,<2.3.0"
+
+[[package]]
+category = "main"
+description = "Clean single-source support for Python 3 and 2"
+name = "future"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+version = "0.18.2"
 
 [[package]]
 category = "main"
@@ -447,7 +465,6 @@ test = ["pytest (!=5.3.4)", "pytest-cov", "flaky", "nose"]
 [[package]]
 category = "main"
 description = "IPython: Productive Interactive Computing"
-marker = "python_version >= \"3.3\""
 name = "ipython"
 optional = false
 python-versions = ">=3.7"
@@ -522,7 +539,6 @@ requirements_deprecated_finder = ["pipreqs", "pip-api"]
 [[package]]
 category = "main"
 description = "An autocompletion tool for Python that can be used for text editors."
-marker = "python_version >= \"3.4\""
 name = "jedi"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
@@ -870,7 +886,6 @@ version = "1.4.2"
 [[package]]
 category = "main"
 description = "A Python Parser"
-marker = "python_version >= \"3.4\""
 name = "parso"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
@@ -898,7 +913,7 @@ version = "0.1.2"
 [[package]]
 category = "main"
 description = "Pexpect allows easy control of interactive console applications."
-marker = "python_version >= \"3.4\" and sys_platform != \"win32\""
+marker = "python_version >= \"3.3\" and sys_platform != \"win32\" or sys_platform != \"win32\" or python_version >= \"3.4\" and sys_platform != \"win32\""
 name = "pexpect"
 optional = false
 python-versions = "*"
@@ -910,7 +925,6 @@ ptyprocess = ">=0.5"
 [[package]]
 category = "main"
 description = "Tiny 'shelve'-like database with concurrency support"
-marker = "python_version >= \"3.4\""
 name = "pickleshare"
 optional = false
 python-versions = "*"
@@ -954,7 +968,6 @@ twisted = ["twisted"]
 [[package]]
 category = "main"
 description = "Library for building powerful interactive command lines in Python"
-marker = "python_version >= \"3.4\""
 name = "prompt-toolkit"
 optional = false
 python-versions = ">=3.6.1"
@@ -978,7 +991,7 @@ six = ">=1.9"
 [[package]]
 category = "main"
 description = "Run a subprocess in a pseudo terminal"
-marker = "python_version >= \"3.4\" and sys_platform != \"win32\" or os_name != \"nt\""
+marker = "python_version >= \"3.3\" and sys_platform != \"win32\" or sys_platform != \"win32\" or python_version >= \"3.4\" and sys_platform != \"win32\" or os_name != \"nt\" or python_version >= \"3.3\" and sys_platform != \"win32\" and (python_version >= \"3.3\" and sys_platform != \"win32\" or sys_platform != \"win32\" or python_version >= \"3.4\" and sys_platform != \"win32\") or python_version >= \"3.4\" and sys_platform != \"win32\" and (python_version >= \"3.3\" and sys_platform != \"win32\" or sys_platform != \"win32\" or python_version >= \"3.4\" and sys_platform != \"win32\")"
 name = "ptyprocess"
 optional = false
 python-versions = "*"
@@ -1409,6 +1422,18 @@ version = "0.10.0"
 
 [[package]]
 category = "main"
+description = "Tensors and Dynamic neural networks in Python with strong GPU acceleration"
+name = "torch"
+optional = false
+python-versions = ">=3.6.1"
+version = "1.6.0"
+
+[package.dependencies]
+future = "*"
+numpy = "*"
+
+[[package]]
+category = "main"
 description = "Tornado is a Python web framework and asynchronous networking library, originally developed at FriendFeed."
 name = "tornado"
 optional = false
@@ -1562,7 +1587,6 @@ watchmedo = ["PyYAML (>=3.10)", "argh (>=0.24.1)"]
 [[package]]
 category = "main"
 description = "Measures the displayed width of unicode strings in a terminal"
-marker = "python_version >= \"3.4\""
 name = "wcwidth"
 optional = false
 python-versions = "*"
@@ -1631,7 +1655,7 @@ python-versions = "*"
 version = "1.12.1"
 
 [metadata]
-content-hash = "71f56831ff9c1c3d0e26e30a6486ec21e9af25304343d6c97d93ea88ed9218e4"
+content-hash = "c37d03ed48c8d341d61a2c8325f1efe8663f81a22fc5d4d1aa04e81c09539d29"
 lock-version = "1.0"
 python-versions = "^3.8"
 
@@ -1681,6 +1705,10 @@ astunparse = [
 async-generator = [
     {file = "async_generator-1.10-py3-none-any.whl", hash = "sha256:01c7bf666359b4967d2cda0000cc2e4af16a0ae098cbffcb8472fb9e8ad6585b"},
     {file = "async_generator-1.10.tar.gz", hash = "sha256:6ebb3d106c12920aaae42ccb6f787ef5eefdcdd166ea3d628fa8476abe712144"},
+]
+attrdict = [
+    {file = "attrdict-2.0.1-py2.py3-none-any.whl", hash = "sha256:9432e3498c74ff7e1b20b3d93b45d766b71cbffa90923496f82c4ae38b92be34"},
+    {file = "attrdict-2.0.1.tar.gz", hash = "sha256:35c90698b55c683946091177177a9e9c0713a0860f0e049febd72649ccd77b70"},
 ]
 attrs = [
     {file = "attrs-20.2.0-py2.py3-none-any.whl", hash = "sha256:fce7fc47dfc976152e82d53ff92fa0407700c21acd20886a13777a0d20e655dc"},
@@ -1807,6 +1835,9 @@ filelock = [
 flake8 = [
     {file = "flake8-3.8.3-py2.py3-none-any.whl", hash = "sha256:15e351d19611c887e482fb960eae4d44845013cc142d42896e9862f775d8cf5c"},
     {file = "flake8-3.8.3.tar.gz", hash = "sha256:f04b9fcbac03b0a3e58c0ab3a0ecc462e023a9faf046d57794184028123aa208"},
+]
+future = [
+    {file = "future-0.18.2.tar.gz", hash = "sha256:b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"},
 ]
 gast = [
     {file = "gast-0.3.3-py2.py3-none-any.whl", hash = "sha256:8f46f5be57ae6889a4e16e2ca113b1703ef17f2b0abceb83793eaba9e1351a45"},
@@ -2475,6 +2506,14 @@ toml = [
 ]
 toolz = [
     {file = "toolz-0.10.0.tar.gz", hash = "sha256:08fdd5ef7c96480ad11c12d472de21acd32359996f69a5259299b540feba4560"},
+]
+torch = [
+    {file = "torch-1.6.0-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:7669f4d923b5758e28b521ea749c795ed67ff24b45ba20296bc8cff706d08df8"},
+    {file = "torch-1.6.0-cp36-none-macosx_10_9_x86_64.whl", hash = "sha256:728facb972a5952323c6d790c2c5922b2b35c44b0bc7bdfa02f8639727671a0c"},
+    {file = "torch-1.6.0-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:87d65c01d1b70bb46070824f28bfd93c86d3c5c56b90cbbe836a3f2491d91c76"},
+    {file = "torch-1.6.0-cp37-none-macosx_10_9_x86_64.whl", hash = "sha256:3838bd01af7dfb1f78573973f6842ce75b17e8e4f22be99c891dcb7c94bc13f5"},
+    {file = "torch-1.6.0-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:5357873e243bcfa804c32dc341f564e9a4c12addfc9baae4ee857fcc09a0a216"},
+    {file = "torch-1.6.0-cp38-none-macosx_10_9_x86_64.whl", hash = "sha256:4f9a4ad7947cef566afb0a323d99009fe8524f0b0f2ca1fb7ad5de0400381a5b"},
 ]
 tornado = [
     {file = "tornado-6.0.4-cp35-cp35m-win32.whl", hash = "sha256:5217e601700f24e966ddab689f90b7ea4bd91ff3357c3600fa1045e26d68e55d"},
