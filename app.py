@@ -1,3 +1,4 @@
+import functools
 from typing import Dict
 
 import streamlit as st  # type: ignore
@@ -7,16 +8,31 @@ from transformers import Pipeline, pipeline  # type: ignore
 from config import config
 
 
+def conditional_decorator(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        if config["framework"] == "pt":
+            qa = st.cache(func)(*args, **kwargs)
+        else:
+            qa = func(*args, **kwargs)
+        return qa
+
+    return wrapper
+
+
+@conditional_decorator
 def get_qa_pipeline() -> Pipeline:
     qa = pipeline("question-answering", framework=config["framework"])
     return qa
 
 
+@conditional_decorator
 def answer_question(pipeline: Pipeline, question: str, paragraph: str) -> Dict:
     input = {"question": question, "context": paragraph}
     return pipeline(input)
 
 
+@conditional_decorator
 def get_wiki_paragraph(query: str) -> str:
     results = wikipedia.search(query)
     try:
@@ -56,6 +72,8 @@ if __name__ == "__main__":
                 start_idx = answer["start"]
                 end_idx = answer["end"]
                 st.success(answer["answer"])
+                print(f"NUM SENT: {config['NUM_SENT']}")
+                print(f"FRAMEWORK: {config['framework']}")
                 print(f"QUESTION: {question}\nRESPONSE: {answer}")
             except Exception as e:
                 print(e)
