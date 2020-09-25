@@ -1,3 +1,4 @@
 streamlit==0.62.1
+torch==1.6.0
 transformers==3.0.0
 wikipedia==1.4.0
